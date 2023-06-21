@@ -1,31 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { watchEffect } from 'vue';
 
 const row = ref(0)
 const column = ref(0)
-const data = ref([])
-let rowFirst = ref(null)
+const data = ref<any[][]>([])
 let topSide = ref([])
 let rightSide = ref([])
 let bottomSide = ref([])
 let leftSide = ref([])
-
-
-// function onSubmit() {
-//   const query = `row=${row.value}&column=${column.value}`;
-//   fetch(`https://port-0-on-et-dihik2mlj4m7swv.sel4.cloudtype.app/elevation/square?${query}`)
-//     .then((response) => response.json())
-//     .then((responseData) => {
-//       data.value = responseData;
-
-//       topSide = data.value[1][0];
-//       rightSide = data.value[1][1];
-//       bottomSide = data.value[1][2];
-//       leftSide = data.value[1][3];
-//       rowFirst = data.value[0];
-//     });
-// }
 
 
 function onSubmit() {
@@ -39,7 +21,6 @@ function onSubmit() {
       rightSide.value = data.value[1][1];
       bottomSide.value = data.value[1][2].reverse();
       leftSide.value = data.value[1][3].reverse();
-      rowFirst.value = data.value[0];
     });
 }
 
